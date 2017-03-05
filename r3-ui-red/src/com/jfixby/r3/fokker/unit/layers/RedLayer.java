@@ -13,7 +13,6 @@ import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
-import com.jfixby.r3.api.ui.unit.txt.TextBar;
 import com.jfixby.r3.fokker.unit.cam.RedCamera;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
@@ -222,9 +221,9 @@ public class RedLayer implements Layer, RootLayer {
 		} else if (component instanceof EventsSequence) {
 			final EventsSequence animation = (EventsSequence)component;
 			L.d(prefix(indent) + animation.toString());
-		} else if (component instanceof TextBar) {
-			final TextBar type = (TextBar)component;
-			L.d(prefix(indent) + type.toString());
+// } else if (component instanceof TextBar) {
+// final TextBar type = (TextBar)component;
+// L.d(prefix(indent) + type.toString());
 		} else if (component instanceof LayerBasedComponent) {
 			final LayerBasedComponent lb = (LayerBasedComponent)component;
 			final Layer group = lb.getRoot();

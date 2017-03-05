@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.fokker.unit.text;
 
-import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
-import com.jfixby.r3.api.ui.unit.txt.RasterizedStringSpecs;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
 import com.jfixby.r3.api.ui.unit.txt.TextBarSpecs;
 import com.jfixby.r3.api.ui.unit.txt.TextFactory;
@@ -18,27 +16,12 @@ public class RedTextFacory implements TextFactory {
 
 	@Override
 	public TextBarSpecs newTextBarSpecs () {
-		return new RedTextBarSpecs();
+		return new TextBarSpecs();
 	}
 
 	@Override
 	public TextBar newTextBar (final TextBarSpecs text_specs) {
 		return new RedTextBar(text_specs, this.componentsFactory);
-	}
-
-	@Override
-	public RasterizedStringSpecs newRasterStringSpecs () {
-		return new RedRasterizedStringSpecs();
-	}
-
-	@Override
-	public RasterizedString newRasterString (final RasterizedStringSpecs specs) {
-		return new RedRasterizedString(this.componentsFactory, specs);
-	}
-
-	@Override
-	public void dispose (final RasterizedString string) {
-		((RedRasterizedString)string).dispose();
 	}
 
 }

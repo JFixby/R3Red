@@ -37,8 +37,6 @@ import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.scene.Scene2DComponent;
-import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
-import com.jfixby.r3.api.ui.unit.txt.RasterizedStringSpecs;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
 import com.jfixby.r3.api.ui.unit.txt.TextBarSpecs;
 import com.jfixby.r3.api.ui.unit.txt.TextFactory;
@@ -459,7 +457,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		final TextBarSpecs text_bar_specs = text_factory.newTextBarSpecs();
 
-		text_bar_specs.setLocaleName(settings.locale_name);
+		text_bar_specs.name = (settings.locale_name);
 
 		final ID font_id = Names.newID(element.text_settings.font_settings.name);
 		final SceneStructureAsset structure = settings.getStructure();
@@ -469,27 +467,27 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 			bg.setDebugRenderFlag(!true);
 			bg.setOriginRelative(0, 0);
 			bg.setPosition(0, 0);
-			text_bar_specs.setBackgroundRaster(bg);
+			text_bar_specs.backgroundRaster = (bg);
 		} else {
 		}
 // if (text != null) {
 // text_bar_specs.setText(text);
 // }
 		if (element.text_settings.text_value_raw != null) {
-			text_bar_specs.setRawText(element.text_settings.text_value_raw);
+			text_bar_specs.text = (element.text_settings.text_value_raw);
 		} else {
-			text_bar_specs.setRawText("");
+			text_bar_specs.text = ("");
 		}
-		text_bar_specs.setPadding(element.text_settings.padding);
+		text_bar_specs.padding = (element.text_settings.padding);
 
-		text_bar_specs.setFont(font_id);
-		text_bar_specs.setFontSize(element.text_settings.font_settings.font_size);
-		text_bar_specs.setFontScale(element.text_settings.font_settings.font_scale);
+		text_bar_specs.fontID = (font_id);
+		text_bar_specs.fontSize = (element.text_settings.font_settings.font_size);
+// text_bar_specs.setFontScale(element.text_settings.font_settings.font_scale);
 		if (element.text_settings.font_settings.font_color == null) {
 
 		} else {
 			final Color fontColor = Colors.newColor(element.text_settings.font_settings.font_color);
-			text_bar_specs.setFontColor(fontColor);
+			text_bar_specs.fontColor = (fontColor);
 		}
 
 		final TextBar text_bar = text_factory.newTextBar(text_bar_specs);
@@ -841,7 +839,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		final CameraSettings camera_settings, final Settings settings) {
 
 		final TextFactory textFactory = components_factory.getTextDepartment();
-		final RasterizedStringSpecs string_specs = textFactory.newRasterStringSpecs();
+		final TextBarSpecs string_specs = textFactory.newTextBarSpecs();
 // final RasterizedFontSpecs string_specs = textFactory.newFontSpecs();
 // SystemSettings.getStringParameter(EngineParams.Assets.ASSET_INFO_TAG);
 		String param = PREFIX;
@@ -851,24 +849,24 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		}
 		if (camera_settings != null) {
 			param = param + "\n" + PREFIX + " Camera[" + camera_settings.width + " x " + camera_settings.height + "]";
-			string_specs.setFontSize((float)(1f * camera_settings.height * 1f / 25f));
+			string_specs.fontSize = ((float)(1f * camera_settings.height * 1f / 25f));
 		} else {
-			string_specs.setFontSize(10);
+			string_specs.fontSize = (10);
 		}
 		{
 			param = param + "\n" + PREFIX + " scene_name=" + settings.scene_name;
 		}
 
-		string_specs.setFontScale(1);
-		string_specs.setBorderSize(1);
-		string_specs.setBorderColor(Colors.BLACK());
-		string_specs.setFontColor(Colors.WHITE());
+		string_specs.borderSize = (1);
+		string_specs.borderColor = (Colors.BLACK());
+		string_specs.fontColor = (Colors.WHITE());
 
 // final RasterizedFont font = textFactory.newFont(string_specs);
 // string_specs.setFont(font);
 
-		final RasterizedString string = textFactory.newRasterString(string_specs);
-		string.setChars(param);
+		final TextBar string = textFactory.newTextBar(string_specs);
+		string.setText(param);
+		string.getText();
 		root_layer.attachComponent(string);
 	}
 
