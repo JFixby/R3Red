@@ -1,0 +1,11 @@
+dependencies {
+        compile project(":r3-ui-api")
+        compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiAPILevel"
+        
+        compile "com.github.RedTriplane.Battlefields:battlefields-pizza-api:$BFsAPILevel"
+        
+      //compile "com.github.RedTriplane.RedTriplane:r3-api:$R3APILevel"
+
+}
+
+	
