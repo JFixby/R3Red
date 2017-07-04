@@ -1,5 +1,4 @@
 include "r3-ui-api"
 include "r3-ui-api-pizza"
-include "r3-ui-api-scene2d"
 include "r3-ui-api-act"
 

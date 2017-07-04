@@ -1,7 +1,6 @@
 
 package com.jfixby.r3.api.ui.unit.camera;
 
-import com.jfixby.r3.api.screen.CameraProjection;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
@@ -39,7 +38,7 @@ public interface Camera {
 
 	public double getHeight ();
 
-	public CameraProjection getCameraProjection ();
+// public CameraProjection getCameraProjection ();
 
 	void setOriginRelative (ORIGIN_RELATIVE_HORIZONTAL orX, ORIGIN_RELATIVE_VERTICAL orY);
 

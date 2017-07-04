@@ -1,6 +1,8 @@
 
 package com.jfixby.r3.api.ui.unit.camera;
 
+import com.jfixby.r3.api.ui.unit.user.CameraManager;
+
 public interface CameraSpecs {
 
 	void setCameraManager (CameraManager cameraManager);
