@@ -6,10 +6,11 @@ import com.jfixby.r3.api.ui.unit.shader.ShaderSpecs;
 import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
 import com.jfixby.r3.fokker.render.shader.RedFokkerShader;
-import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.r3.fokker.unit.RedDrawableComponent;
+import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.log.L;
@@ -34,20 +35,14 @@ public class RedFokkerShaderComponent extends RedDrawableComponent implements Sh
 		return rect;
 	}
 
-	public RedFokkerShaderComponent (final String vertexProgramRawString, final String fragmentProgramRawString,
-		final RedComponentsFactory redComponentsFactory, final ShaderSpecs specs) {
-		this.id = null;
-		this.fokkerShader = new RedFokkerShader(vertexProgramRawString, fragmentProgramRawString);
-		if (!this.draw_shaders) {
-			L.e("Ignoring shader: " + this.toString());
-		}
-		this.shape = Geometry.newRectangle(specs.getShape());
-		this.fokkerShader.setShape(this.shape);
-	}
-
-	public RedFokkerShaderComponent (final ShaderAsset asset, final AssetsConsumer consumer, final ShaderSpecs specs) {
+	public RedFokkerShaderComponent (final AssetsConsumer consumer, final ShaderSpecs specs) {
 		this.id = null;
 		L.d("warning, null shader id");
+
+		final ID newAssetID = Debug.checkNull("specs.getShaderAssetID()", specs.shaderID);
+		final AssetHandler asset_handler = this.obtainShader(newAssetID);
+		final ShaderAsset asset = (ShaderAsset)asset_handler.asset();
+
 		this.fokkerShader = new RedFokkerShader(asset, consumer);
 		if (!this.draw_shaders) {
 			L.e("Ignoring shader: " + this.toString());

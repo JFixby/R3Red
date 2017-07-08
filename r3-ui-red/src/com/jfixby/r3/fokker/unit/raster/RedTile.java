@@ -6,11 +6,13 @@ import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.raster.Tile;
 import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.fokker.api.RenderMachine;
+import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.r3.fokker.unit.RedRectangularComponent;
 import com.jfixby.r3.render.api.RasterData;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 
@@ -61,15 +63,21 @@ public class RedTile extends RedRectangularComponent implements Tile {
 	@Override
 	public void doDraw () {
 		RenderMachine.beginDrawComponent(this);
-		RenderMachine.beginRasterMode(this.mode, this.opacity);
+		RenderMachine.beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
 
 		RenderMachine.drawRaster(this.asset_id, this.shape());
 
-		RenderMachine.endRasterMode(this.mode);
+		RenderMachine.endRasterMode(this.TOtxtmODE(this.mode));
 		RenderMachine.endDrawComponent(this);
 		if (this.getDebugRenderFlag()) {
 			this.debug_rectangle.doDraw();
 		}
+	}
+
+	private TEXTURE_BLEND_MODE TOtxtmODE (final UI_BLEND_MODE mode2) {
+
+		Err.throwNotImplementedYet();
+		return null;
 	}
 
 	@Override
