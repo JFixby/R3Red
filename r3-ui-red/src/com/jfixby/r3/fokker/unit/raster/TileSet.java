@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.fokker.unit.raster;
 
-import com.jfixby.rana.api.asset.Asset;
-import com.jfixby.rana.api.asset.AssetsGroup;
+import com.jfixby.rana.api.Asset;
+import com.jfixby.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.json.Json;

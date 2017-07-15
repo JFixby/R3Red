@@ -15,7 +15,6 @@ import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.r3.fokker.unit.geo.RedRectangleComponent;
 import com.jfixby.r3.fokker.unit.layers.ScreenDimentionsHolder;
-import com.jfixby.r3.render.api.R3_SYSTEM_ASSETS;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.err.Err;
@@ -30,7 +29,6 @@ import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.scarabei.api.math.FloatMath;
-import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RedCamera implements Camera, CameraProjection, Projection {
 
@@ -285,7 +283,7 @@ public class RedCamera implements Camera, CameraProjection, Projection {
 		}
 	}
 
-	final ID asset_id = SystemSettings.getSystemAssetID(R3_SYSTEM_ASSETS.SPRITE_BLACK);
+	final ID asset_id = RenderMachine.DefaultAssets().BLACK();
 	private String camera_name;
 
 	public void renderAperture () {

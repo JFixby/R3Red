@@ -11,12 +11,11 @@ import com.jfixby.r3.api.ui.unit.camera.ShadowSpecs;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.raster.Tile;
 import com.jfixby.r3.api.ui.unit.user.CameraManager;
-import com.jfixby.r3.fokker.api.FokkerEngineParams.Assets;
+import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.api.Screen;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.scarabei.api.math.FloatMath;
-import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RedShadow implements Shadow, LayerBasedComponent, CameraManager {
 	private Layer root;
@@ -56,7 +55,7 @@ public class RedShadow implements Shadow, LayerBasedComponent, CameraManager {
 		// camera.setApertureOpacity(ABSOLUTE_CLEAR);
 		this.root.setCamera(this.camera);
 
-		this.shadow_sprite = components_factory.getRasterDepartment().newTile(SystemSettings.getSystemAssetID(Assets.SPRITE_BLACK));
+		this.shadow_sprite = components_factory.getRasterDepartment().newTile(RenderMachine.DefaultAssets().BLACK());
 		this.shadow_sprite.setOpacity(1f);
 		this.root.attachComponent(this.shadow_sprite);
 

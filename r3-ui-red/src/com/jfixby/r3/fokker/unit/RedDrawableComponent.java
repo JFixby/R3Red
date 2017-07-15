@@ -1,13 +1,13 @@
 
 package com.jfixby.r3.fokker.unit;
 
-import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
+import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.color.CustomColor;
 import com.jfixby.scarabei.api.debug.Debug;
 
-public abstract class RedDrawableComponent implements DrawableComponent {
+public abstract class RedDrawableComponent implements VisibleComponent {
 	private boolean visible = true;
 	private boolean debug_render = false;;
 	private String name = null;

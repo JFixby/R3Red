@@ -3,11 +3,13 @@ package com.jfixby.r3.fokker.unit.raster;
 
 import java.util.ArrayList;
 
-import com.jfixby.r3.api.render.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.raster.TilesComposition;
+import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
+import com.jfixby.r3.fokker.unit.BlendModeCasting;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.r3.fokker.unit.RedRectangularComponent;
 import com.jfixby.r3.fokker.unit.geo.RedRectangleComponent;
@@ -29,7 +31,7 @@ import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.texture.slicer.api.SliceInfo;
 import com.jfixby.texture.slicer.api.SlicesCompositionInfo;
 
-public class RedTilesComposition extends RedRectangularComponent implements TilesComposition {
+public class RedTilesComposition extends RedRectangularComponent implements TilesComposition, Drawable {
 	private final ID composition_asset_id;
 	private float opacity = 1f;
 	private final SlicesCompositionInfo composition;
@@ -88,7 +90,7 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 	final Float2 tmpB = Geometry.newFloat2();
 	final Float2 tmpC = Geometry.newFloat2();
 	final Float2 tmpD = Geometry.newFloat2();
-	private UI_BLEND_MODE mode = UI_BLEND_MODE.GDX_DEFAULT;
+	private UI_BLEND_MODE mode = UI_BLEND_MODE.Normal;
 	private final boolean render_tiles = !false;
 
 	// final Rectangle
@@ -102,7 +104,7 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 		}
 
 		RenderMachine.component().beginDrawComponent(this);
-		RenderMachine.component().beginRasterMode(this.mode, this.opacity);
+		RenderMachine.component().beginRasterMode(BlendModeCasting.toRenderMachineBlendMode(this.mode), this.opacity);
 // debuger.reset();
 		for (int i = 0; i < this.tiles.size(); i++) {
 			final RedTileInfo tile = this.tiles.get(i);
@@ -117,7 +119,7 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 		}
 // debuger.printTimeAbove(0.0001, this.toString());
 // debuger.reset();
-		RenderMachine.component().endRasterMode(this.mode);
+		RenderMachine.component().endRasterMode(BlendModeCasting.toRenderMachineBlendMode(this.mode));
 
 		if (this.getDebugRenderFlag()) {
 			RenderMachine.beginShapesMode();

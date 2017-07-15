@@ -5,6 +5,7 @@ import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.raster.Tile;
 import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
@@ -16,7 +17,7 @@ import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 
-public class RedTile extends RedRectangularComponent implements Tile {
+public class RedTile extends RedRectangularComponent implements Tile, Drawable {
 
 	@Override
 	public String toString () {
@@ -103,7 +104,7 @@ public class RedTile extends RedRectangularComponent implements Tile {
 	@Override
 	public UI_BLEND_MODE setBlendMode (UI_BLEND_MODE mode) {
 		if (mode == null) {
-			mode = UI_BLEND_MODE.GDX_DEFAULT;
+			mode = UI_BLEND_MODE.Normal;
 		}
 		final UI_BLEND_MODE old = this.mode;
 		this.mode = mode;

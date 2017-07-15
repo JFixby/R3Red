@@ -14,9 +14,8 @@ import org.box2d.jfixby.api.PolygonShape;
 import org.box2d.jfixby.api.ShapeType;
 
 import com.jfixby.r3.api.physics.PhysicsCore;
-import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
-import com.jfixby.r3.fokker.api.FokkerDrawable;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.color.Color;
@@ -27,7 +26,7 @@ import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Vertex;
 
-public class GDXBox2DDebugRendererComponent implements VisibleComponent, DrawableComponent, FokkerDrawable {
+public class GDXBox2DDebugRendererComponent implements VisibleComponent, Drawable {
 
 	GDXBox2DDebugRendererComponent (final PhysicsCore core, final boolean drawBodies, final boolean drawJoints,
 		final boolean drawAABBs, final boolean drawInactiveBodies, final boolean drawVelocities, final boolean drawContacts) {

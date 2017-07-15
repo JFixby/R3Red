@@ -4,7 +4,7 @@ package com.jfixby.r3.fokker.unit;
 import java.util.ArrayList;
 
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
-import com.jfixby.r3.fokker.api.FokkerDrawable;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.unit.cam.RedCamera;
 import com.jfixby.r3.fokker.unit.layers.FastList;
@@ -93,7 +93,7 @@ public class RedLayerRenderer {
 			if (e instanceof RedLayer) {
 				renderLayer((RedLayer)e, timer, cameras_stack, execMode, projections_stack);
 			} else {
-				renderComponent((FokkerDrawable)e, timer, execMode, layer);
+				renderComponent((Drawable)e, timer, execMode, layer);
 			}
 		}
 		if (camera != null) {
@@ -139,7 +139,7 @@ public class RedLayerRenderer {
 
 	private final ExecutionMode execMode;
 
-	final static private void renderComponent (final FokkerDrawable e, final DebugTimer timer, final ExecutionMode execMode,
+	final static private void renderComponent (final Drawable e, final DebugTimer timer, final ExecutionMode execMode,
 		final RedLayer parent) {
 		if (!e.isVisible()) {
 			return;

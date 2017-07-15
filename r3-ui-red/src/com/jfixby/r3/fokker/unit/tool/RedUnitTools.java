@@ -8,19 +8,19 @@ import com.jfixby.r3.fokker.unit.RedUnitExecutor;
 
 public class RedUnitTools implements UnitToolkit {
 
-	private RedUnitExecutor master;
+	private final RedUnitExecutor master;
 
-	public RedUnitTools (RedUnitExecutor redUnitExecutor) {
+	public RedUnitTools (final RedUnitExecutor redUnitExecutor) {
 		this.master = redUnitExecutor;
 	}
 
 	@Override
 	public ScreenShotSpecs newScreenShotSpecs () {
-		return new RedScreenShotSpecs();
+		return new ScreenShotSpecs();
 	}
 
 	@Override
-	public ScreenShot newScreenShot (ScreenShotSpecs sh_spec) {
+	public ScreenShot newScreenShot (final ScreenShotSpecs sh_spec) {
 		return new RedScreenShot(sh_spec);
 	}
 

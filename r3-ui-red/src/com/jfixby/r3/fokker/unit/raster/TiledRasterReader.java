@@ -4,7 +4,7 @@ package com.jfixby.r3.fokker.unit.raster;
 import java.io.IOException;
 
 import com.jfixby.r3.fokker.api.StandardPackageFormats;
-import com.jfixby.rana.api.asset.AssetsContainer;
+import com.jfixby.rana.api.AssetsContainer;
 import com.jfixby.rana.api.format.PackageFormat;
 import com.jfixby.rana.api.loader.PackageReader;
 import com.jfixby.rana.api.loader.PackageReaderInput;

@@ -2,7 +2,8 @@
 package com.jfixby.r3.fokker.unit.geo;
 
 import com.jfixby.r3.api.ui.unit.geometry.RectangleComponent;
-import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
+import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.scarabei.api.collections.Collection;
@@ -20,7 +21,7 @@ import com.jfixby.scarabei.api.geometry.RectangleCorner;
 import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.scarabei.api.math.FloatMath;
 
-public class RedRectangleComponent implements RectangleComponent, DrawableComponent {
+public class RedRectangleComponent implements RectangleComponent, VisibleComponent, Drawable {
 
 	final CustomColor border_color = Colors.GREEN().customize();
 	final CustomColor fill_color = Colors.NO().customize();

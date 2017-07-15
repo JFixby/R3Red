@@ -1,9 +1,8 @@
 
 package com.jfixby.r3.fokker.unit.text;
 
-import com.jfixby.r3.api.render.BLEND_MODE;
-import com.jfixby.r3.api.ui.unit.LayerBasedComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
+import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedStringSpecs;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
@@ -22,9 +21,9 @@ import com.jfixby.scarabei.api.geometry.projections.OffsetProjection;
 import com.jfixby.scarabei.api.geometry.projections.RotateProjection;
 import com.jfixby.scarabei.api.math.Angle;
 
-public class RedRasterizedString implements RasterizedString, LayerBasedComponent {
+public class RedRasterizedString implements RasterizedString {
 
-	final FokkerRedRasterizedString fokkerString;
+// final FokkerRedRasterizedString fokkerString;
 
 	final RedComponentsFactory componentsFactory;
 
@@ -51,6 +50,8 @@ public class RedRasterizedString implements RasterizedString, LayerBasedComponen
 
 	private final ComposedProjection projection;
 
+	private final RedStringHolder stringHolder;
+
 	public RedRasterizedString (final RedComponentsFactory componentsFactory, final RasterizedStringSpecs specs) {
 		this.fontID = Debug.checkNull("font", specs.getFontName());
 		this.componentsFactory = componentsFactory;
@@ -63,8 +64,10 @@ public class RedRasterizedString implements RasterizedString, LayerBasedComponen
 		this.size = specs.getFontSize();
 		this.canvas_position = Geometry.newCanvasPosition();
 		this.name = "RedRasterizedString";
-		this.fokkerString = new FokkerRedRasterizedString(this);
-		this.root.attachComponent(this.fokkerString);
+
+		this.stringHolder = new RedStringHolder(this);
+		this.root.attachComponent(this.stringHolder);
+
 		this.offset = Geometry.getProjectionFactory().newOffset();
 		this.rotate = Geometry.getProjectionFactory().newRotate();
 
@@ -182,14 +185,14 @@ public class RedRasterizedString implements RasterizedString, LayerBasedComponen
 	@Override
 	public UI_BLEND_MODE setBlendMode (UI_BLEND_MODE mode) {
 		if (mode == null) {
-			mode = UI_BLEND_MODE.GDX_DEFAULT;
+			mode = UI_BLEND_MODE.Normal;
 		}
 		final UI_BLEND_MODE old = this.mode;
 		this.mode = mode;
 		return old;
 	}
 
-	private UI_BLEND_MODE mode = UI_BLEND_MODE.GDX_DEFAULT;
+	private UI_BLEND_MODE mode = UI_BLEND_MODE.Normal;
 
 	@Override
 	public void setPosition (final ReadOnlyFloat2 position) {

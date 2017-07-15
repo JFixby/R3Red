@@ -10,7 +10,7 @@ import com.jfixby.r3.api.ui.unit.update.OnUpdateListener;
 import com.jfixby.r3.api.ui.unit.user.KeyboardInputEventListener;
 import com.jfixby.r3.api.ui.unit.user.MouseInputEventListener;
 import com.jfixby.r3.api.ui.unit.user.ScreenChangeListener;
-import com.jfixby.r3.fokker.api.FokkerDrawable;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.CollectionScanner;
 import com.jfixby.scarabei.api.collections.Collections;
@@ -137,7 +137,7 @@ public class RedLayerChildrenBox {
 			this.update_listeners.add(attachment);
 		}
 
-		if (attachment instanceof FokkerDrawable) {
+		if (attachment instanceof Drawable) {
 			this.renderable.add(attachment);
 		}
 

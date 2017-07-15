@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.unit.raster;
 
 import java.util.ArrayList;
 
-import com.jfixby.rana.api.asset.AssetsGroup;
+import com.jfixby.rana.api.AssetsGroup;
 
 public class TileSetGroup implements AssetsGroup {
 
