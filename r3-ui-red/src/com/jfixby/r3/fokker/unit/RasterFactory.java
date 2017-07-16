@@ -9,8 +9,6 @@ import com.jfixby.r3.api.ui.unit.raster.RasterPool;
 import com.jfixby.r3.fokker.unit.raster.RedTile;
 import com.jfixby.r3.fokker.unit.raster.RedTilesComposition;
 import com.jfixby.r3.fokker.unit.raster.TileSet;
-import com.jfixby.r3.fokker.unit.raster.log.RedGraphicalConsole;
-import com.jfixby.r3.fokker.unit.raster.log.RedGraphicalConsoleSpecs;
 import com.jfixby.r3.render.api.R3_SYSTEM_ASSETS;
 import com.jfixby.r3.render.api.RasterData;
 import com.jfixby.rana.api.Asset;
@@ -87,12 +85,14 @@ public class RasterFactory implements RasterComponentsFactory {
 
 	@Override
 	public GraphicalConsoleSpecs newConsoleSpecs () {
-		return new RedGraphicalConsoleSpecs();
+		Err.throwNotImplementedYet();
+		return null;
 	}
 
 	@Override
 	public GraphicalConsole newConsole (final GraphicalConsoleSpecs gspec) {
-		return new RedGraphicalConsole(this.master, gspec);
+		Err.throwNotImplementedYet();
+		return null;
 	}
 
 }

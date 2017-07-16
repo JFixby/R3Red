@@ -33,9 +33,9 @@ import com.jfixby.r3.api.ui.unit.parallax.Parallax;
 import com.jfixby.r3.api.ui.unit.parallax.ParallaxElementSpecs;
 import com.jfixby.r3.api.ui.unit.parallax.ParallaxFactory;
 import com.jfixby.r3.api.ui.unit.parallax.ParallaxSpecs;
-import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
+import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.scene.Scene2DComponent;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 import com.jfixby.r3.api.ui.unit.shader.ShaderFactory;
@@ -450,17 +450,17 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		final TextFactory text_factory = components_factory.getTextDepartment();
 
-		final String textStringID = element.text_settings.text_value_asset_id;
-		Text text = null;
-		if (textStringID != null) {
-			final ID text_asset_id = Names.newID(textStringID);
-			final AssetHandler text_asset = LoadedAssets.obtainAsset(text_asset_id, (AssetsConsumer)components_factory);
-			text = (Text)text_asset.asset();
-		} else if (element.text_settings.text_value_raw != null) {
-			text = null;
-		} else {
-			Err.reportError("text_value_asset_id is null " + settings.getStackPath() + " " + element);
-		}
+// final String textStringID = element.text_settings.text_value_asset_id;
+// Text text = null;
+// if (textStringID != null) {
+// final ID text_asset_id = Names.newID(textStringID);
+// final AssetHandler text_asset = LoadedAssets.obtainAsset(text_asset_id, (AssetsConsumer)components_factory);
+// text = (Text)text_asset.asset();
+// } else if (element.text_settings.text_value_raw != null) {
+// text = null;
+// } else {
+// Err.reportError("text_value_asset_id is null " + settings.getStackPath() + " " + element);
+// }
 
 		final TextBarSpecs text_bar_specs = text_factory.newTextBarSpecs();
 
@@ -477,11 +477,13 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 			text_bar_specs.setBackgroundRaster(bg);
 		} else {
 		}
-		if (text != null) {
-			text_bar_specs.setText(text);
-		}
+// if (text != null) {
+// text_bar_specs.setText(text);
+// }
 		if (element.text_settings.text_value_raw != null) {
 			text_bar_specs.setRawText(element.text_settings.text_value_raw);
+		} else {
+			text_bar_specs.setRawText("");
 		}
 		text_bar_specs.setPadding(element.text_settings.padding);
 
