@@ -9,6 +9,7 @@ buildscript {
 ext {   
         scarabeiAPILevel = "F.2"
              BFsAPILevel = "B.0"
+               slicerAPI = "1.5" 
 }
 
 

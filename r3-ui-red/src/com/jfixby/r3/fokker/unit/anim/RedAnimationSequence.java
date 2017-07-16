@@ -13,11 +13,13 @@ import com.jfixby.r3.api.ui.unit.update.OnUpdateListener;
 import com.jfixby.r3.api.ui.unit.update.UnitClocks;
 import com.jfixby.r3.fokker.unit.RedComponentsFactory;
 import com.jfixby.r3.fokker.unit.layers.RedLayer;
+import com.jfixby.scarabei.api.collections.CollectionConverter;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Spline2D;
@@ -130,7 +132,16 @@ public class RedAnimationSequence implements PositionsSequence, LayerBasedCompon
 
 			this.spline = Geometry.newSpline2D();
 // this.animations_list.print("animations_list");
-			this.spline.computeSpline(this.animations_list, 100);
+			final List<Float2> liastFloat2 = Collections.newList();
+			final List<PositionAnchor> listInout = this.animations_list;
+			final CollectionConverter<PositionAnchor, Float2> converter = new CollectionConverter<PositionAnchor, Float2>() {
+				@Override
+				public Float2 convert (final PositionAnchor a) {
+					return a.position();
+				}
+			};
+			Collections.convertCollection(listInout, liastFloat2, converter);
+			this.spline.computeSpline(liastFloat2, 100);
 
 		}
 

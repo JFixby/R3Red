@@ -6,7 +6,7 @@ import com.jfixby.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.json.Json;
-import com.jfixby.texture.slicer.api.SlicesCompositionInfo;
+import com.jfixby.texture.slicer.api.io.SlicesCompositionInfo;
 
 public class TileSet implements Asset {
 

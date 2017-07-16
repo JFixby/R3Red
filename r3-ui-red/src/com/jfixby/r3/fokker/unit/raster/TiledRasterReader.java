@@ -3,7 +3,6 @@ package com.jfixby.r3.fokker.unit.raster;
 
 import java.io.IOException;
 
-import com.jfixby.r3.fokker.api.StandardPackageFormats;
 import com.jfixby.rana.api.AssetsContainer;
 import com.jfixby.rana.api.format.PackageFormat;
 import com.jfixby.rana.api.loader.PackageReader;
@@ -17,15 +16,15 @@ import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.io.IO;
 import com.jfixby.scarabei.api.java.ByteArray;
 import com.jfixby.scarabei.api.log.L;
-import com.jfixby.texture.slicer.api.SlicesCompositionInfo;
-import com.jfixby.texture.slicer.api.SlicesCompositionsContainer;
+import com.jfixby.texture.slicer.api.io.SlicesCompositionInfo;
+import com.jfixby.texture.slicer.api.io.SlicesCompositionsContainer;
 
 public class TiledRasterReader implements PackageReader {
 
 	final List<PackageFormat> acceptablePackageFormats = Collections.newList();
 
 	public TiledRasterReader () {
-		this.acceptablePackageFormats.add(new PackageFormat(StandardPackageFormats.RedTriplane.TiledRaster));
+		this.acceptablePackageFormats.add(new PackageFormat(SlicesCompositionsContainer.PACKAGE_FORMAT));
 	}
 
 	private final boolean doNotRead = !true;
