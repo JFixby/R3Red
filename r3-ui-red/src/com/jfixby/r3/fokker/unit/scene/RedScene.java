@@ -37,9 +37,6 @@ import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.raster.UI_BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.scene.Scene2DComponent;
-import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
-import com.jfixby.r3.api.ui.unit.shader.ShaderFactory;
-import com.jfixby.r3.api.ui.unit.shader.ShaderSpecs;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedStringSpecs;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
@@ -53,9 +50,6 @@ import com.jfixby.r3.ext.api.scene2d.srlz.CameraSettings.MODE;
 import com.jfixby.r3.ext.api.scene2d.srlz.LayerElement;
 import com.jfixby.r3.ext.api.scene2d.srlz.ParallaxSettings;
 import com.jfixby.r3.ext.api.scene2d.srlz.RASTER_BLEND_MODE;
-import com.jfixby.r3.ext.api.scene2d.srlz.ShaderParameterType;
-import com.jfixby.r3.ext.api.scene2d.srlz.ShaderParameterValue;
-import com.jfixby.r3.ext.api.scene2d.srlz.ShaderSettings;
 import com.jfixby.r3.ext.scene2d.red.SceneStructureAsset;
 import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.AssetsConsumer;
@@ -93,7 +87,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	private final List<Scene2DComponent> child_scenes = Collections.newList();
 	private final List<TextBar> text_fields = Collections.newList();
 
-	private final List<ShaderComponent> shaders = Collections.newList();
+// private final List<ShaderComponent> shaders = Collections.newList();
 	private final List<LocalizedComponent> localized_components = Collections.newList();
 	private final List<Parallax> parallaxes = Collections.newList();
 	private final Map<String, InputComponent> inputs_components = Collections.newMap();
@@ -213,9 +207,10 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		} else if (element.is_shader) {
 
-			final ShaderComponent shader = currentScene.restoreShader(element, components_factory, settings);
-			currentScene.shaders.add(shader);
-			component = shader;
+// final ShaderComponent shader = currentScene.restoreShader(element, components_factory, settings);
+// currentScene.shaders.add(shader);
+// component = shader;
+			Err.throwNotImplementedYet();
 
 		} else {
 			Err.reportError("Element's type: " + Json.serializeToString(element) + " is not supported yet");
@@ -698,27 +693,27 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	}
 
 	//
-	private ShaderComponent restoreShader (final LayerElement celement, final ComponentsFactory components_factory,
-		final Settings settings) {
-		final ShaderSettings shader_settings = celement.shader_settings;
-
-		final ShaderFactory shader_factory = components_factory.getShadersDepartment();
-
-		final ID shader_asset_id = Names.newID(celement.shader_id);
-
-		final ShaderSpecs shader_specs = shader_factory.newShaderSpecs();
-
-		shader_specs.shaderID = (shader_asset_id);
-		final ShaderComponent shader = shader_factory.newShader(shader_specs);
-		shader.setName(celement.name);
-		for (int i = 0; i < shader_settings.params.size(); i++) {
-			final ShaderParameterValue parameter = shader_settings.params.get(i);
-			if (parameter.type == ShaderParameterType.FLOAT) {
-				shader.setFloatParameterValue(parameter.name, Double.parseDouble(parameter.value));
-			}
-		}
-		return shader;
-	}
+// private ShaderComponent restoreShader (final LayerElement celement, final ComponentsFactory components_factory,
+// final Settings settings) {
+// final ShaderSettings shader_settings = celement.shader_settings;
+//
+// final ShaderFactory shader_factory = components_factory.getShadersDepartment();
+//
+// final ID shader_asset_id = Names.newID(celement.shader_id);
+//
+// final ShaderSpecs shader_specs = shader_factory.newShaderSpecs();
+//
+// shader_specs.shaderID = (shader_asset_id);
+// final ShaderComponent shader = shader_factory.newShader(shader_specs);
+// shader.setName(celement.name);
+// for (int i = 0; i < shader_settings.params.size(); i++) {
+// final ShaderParameterValue parameter = shader_settings.params.get(i);
+// if (parameter.type == ShaderParameterType.FLOAT) {
+// shader.setFloatParameterValue(parameter.name, Double.parseDouble(parameter.value));
+// }
+// }
+// return shader;
+// }
 
 	private void restoreCamera (final CameraSettings camera_settings, final ComponentsFactory components_factory,
 		final Layer layer) {
@@ -942,10 +937,10 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		return this.text_fields;
 	}
 
-	@Override
-	public Collection<ShaderComponent> listShaders () {
-		return this.shaders;
-	}
+// @Override
+// public Collection<ShaderComponent> listShaders () {
+// return this.shaders;
+// }
 
 	@Override
 	public Collection<Layer> findLayer (final String layerName) {

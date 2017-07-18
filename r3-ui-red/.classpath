@@ -15,5 +15,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-engine-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/texture-slicer-io"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -13,7 +13,6 @@ import org.box2d.jfixby.api.Fixture;
 import org.box2d.jfixby.api.PolygonShape;
 import org.box2d.jfixby.api.ShapeType;
 
-import com.jfixby.r3.api.physics.PhysicsCore;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RenderMachine;
@@ -28,9 +27,9 @@ import com.jfixby.scarabei.api.geometry.Vertex;
 
 public class GDXBox2DDebugRendererComponent implements VisibleComponent, Drawable {
 
-	GDXBox2DDebugRendererComponent (final PhysicsCore core, final boolean drawBodies, final boolean drawJoints,
+	GDXBox2DDebugRendererComponent (final Box2DWorldsContainer core, final boolean drawBodies, final boolean drawJoints,
 		final boolean drawAABBs, final boolean drawInactiveBodies, final boolean drawVelocities, final boolean drawContacts) {
-		this.core = (Box2DWorldsContainer)core;
+		this.core = core;
 		this.drawBodies = drawBodies;
 		this.drawJoints = drawJoints;
 		this.drawAABBs = drawAABBs;
@@ -39,7 +38,7 @@ public class GDXBox2DDebugRendererComponent implements VisibleComponent, Drawabl
 		this.drawContacts = drawContacts;
 	}
 
-	public GDXBox2DDebugRendererComponent (final PhysicsCore core) {
+	public GDXBox2DDebugRendererComponent (final Box2DWorldsContainer core) {
 		this(core, true, true, false, true, false, false);
 	}
 
@@ -138,7 +137,7 @@ public class GDXBox2DDebugRendererComponent implements VisibleComponent, Drawabl
 		final Box2DTransform transform = body.getTransform();
 		for (final Fixture fixture : body.getFixtureList()) {
 			if (this.drawBodies) {
-				final Float2 position = body.position();
+				final Float2 position = body.getPosition();
 				this.drawShape(fixture, transform, this.getColorByBody(body, world_to_render));
 				if (this.drawVelocities) {
 
@@ -170,7 +169,7 @@ public class GDXBox2DDebugRendererComponent implements VisibleComponent, Drawabl
 
 		if (fixture.getType() == ShapeType.Circle) {
 			final CircleShape circle = (CircleShape)fixture.getShape();
-			final ReadOnlyFloat2 position = circle.position();
+			final ReadOnlyFloat2 position = circle.getPosition();
 			this.tmp1.set(position);
 			transform.transform(this.tmp1);
 
