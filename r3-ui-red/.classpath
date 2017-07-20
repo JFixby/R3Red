@@ -4,13 +4,13 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-ui-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io-reader"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-engine-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/texture-slicer-io"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io-reader"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
