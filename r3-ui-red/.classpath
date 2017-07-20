@@ -5,10 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-ui-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-loader-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-manager-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-package-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scene2d-io-reader"/>
