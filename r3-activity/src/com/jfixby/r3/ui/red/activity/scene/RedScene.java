@@ -48,7 +48,6 @@ import com.jfixby.r3.ext.api.scene2d.srlz.CameraSettings.MODE;
 import com.jfixby.r3.ext.api.scene2d.srlz.LayerElement;
 import com.jfixby.r3.ext.api.scene2d.srlz.ParallaxSettings;
 import com.jfixby.r3.ext.api.scene2d.srlz.RASTER_BLEND_MODE;
-import com.jfixby.r3.ext.scene2d.red.SceneStructureAsset;
 import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.rana.api.asset.LoadedAssets;

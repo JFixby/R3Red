@@ -6,7 +6,6 @@ import java.io.IOException;
 import com.jfixby.r3.api.activity.scene.Scene2DComponent;
 import com.jfixby.r3.api.activity.scene.Scene2DSpawningConfig;
 import com.jfixby.r3.api.activity.scene.SceneFactory;
-import com.jfixby.r3.ext.scene2d.red.SceneStructureAsset;
 import com.jfixby.r3.ui.red.activity.RedComponentsFactory;
 import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.LoadedAssets;

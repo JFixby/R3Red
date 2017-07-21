@@ -1,7 +1,6 @@
 
 package com.jfixby.r3.ui.red.activity.scene;
 
-import com.jfixby.r3.ext.scene2d.red.SceneStructureAsset;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.time.TimeStream;
